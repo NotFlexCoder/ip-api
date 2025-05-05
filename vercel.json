@@ -8,6 +8,6 @@
     { "src": "/search", "dest": "/api/search.js" },
     { "src": "/view", "dest": "/api/view.js" },
     { "src": "/save/ip", "dest": "/api/save/[ip].js" },
-    { "src": "/", "dest": "/api/index.html" }
+    { "src": "/", "dest": "/public/index.html" }
   ]
 }
