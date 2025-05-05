@@ -6,7 +6,6 @@
   "routes": [
     { "src": "/get", "dest": "/api/get.js" },
     { "src": "/search", "dest": "/api/search.js" },
-    { "src": "/view", "dest": "/api/view.js" },
-    { "src": "/ip", "dest": "/data/saved_ips.json" }
+    { "src": "/view", "dest": "/api/view.js" }
   ]
 }
