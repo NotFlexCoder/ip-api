@@ -1,6 +1,4 @@
 const fetch = require('node-fetch');
-const fs = require('fs');
-const path = require('path');
 
 module.exports = async (req, res) => {
   const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
@@ -37,17 +35,6 @@ module.exports = async (req, res) => {
       openstreetmap: `https://www.openstreetmap.org/?mlat=${data.lat}&mlon=${data.lon}&zoom=12`
     }
   };
-
-  const filePath = path.join('/tmp', 'ips.json');
-  let savedIps = {};
-
-  if (fs.existsSync(filePath)) {
-    savedIps = JSON.parse(fs.readFileSync(filePath));
-  }
-
-  savedIps[ip] = result;
-
-  fs.writeFileSync(filePath, JSON.stringify(savedIps, null, 2));
 
   res.setHeader('Content-Type', 'application/json');
   res.end(JSON.stringify(result));
