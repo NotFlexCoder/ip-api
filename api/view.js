@@ -2,14 +2,14 @@ const fs = require('fs');
 const path = require('path');
 
 module.exports = async (req, res) => {
-  const dataPath = path.join(__dirname, 'saved_ips.json');
+  const filePath = path.join('/tmp', 'ips.json');
   
-  if (!fs.existsSync(dataPath)) {
+  if (!fs.existsSync(filePath)) {
     res.status(404).json({ message: "No saved IP data found." });
     return;
   }
 
-  const savedIps = JSON.parse(fs.readFileSync(dataPath));
+  const savedIps = JSON.parse(fs.readFileSync(filePath));
 
   res.setHeader('Content-Type', 'application/json');
   res.end(JSON.stringify(savedIps, null, 2));
