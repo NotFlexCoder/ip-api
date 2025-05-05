@@ -38,16 +38,16 @@ module.exports = async (req, res) => {
     }
   };
 
-  const dataPath = path.join(__dirname, 'saved_ips.json');
+  const filePath = path.join('/tmp', 'ips.json');
   let savedIps = {};
 
-  if (fs.existsSync(dataPath)) {
-    savedIps = JSON.parse(fs.readFileSync(dataPath));
+  if (fs.existsSync(filePath)) {
+    savedIps = JSON.parse(fs.readFileSync(filePath));
   }
 
   savedIps[ip] = result;
 
-  fs.writeFileSync(dataPath, JSON.stringify(savedIps, null, 2));
+  fs.writeFileSync(filePath, JSON.stringify(savedIps, null, 2));
 
   res.setHeader('Content-Type', 'application/json');
   res.end(JSON.stringify(result));
