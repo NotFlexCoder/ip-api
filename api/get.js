@@ -1,6 +1,4 @@
-const fetch = require('node-fetch');
-const fs = require('fs');
-const path = require('path');
+let savedIps = {};
 
 module.exports = async (req, res) => {
   const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
@@ -38,16 +36,7 @@ module.exports = async (req, res) => {
     }
   };
 
-  const dataPath = path.join(__dirname, '../data/saved_ips.json');
-  let savedIps = {};
-
-  if (fs.existsSync(dataPath)) {
-    savedIps = JSON.parse(fs.readFileSync(dataPath));
-  }
-
   savedIps[ip] = result;
-
-  fs.writeFileSync(dataPath, JSON.stringify(savedIps, null, 2));
 
   res.setHeader('Content-Type', 'application/json');
   res.end(JSON.stringify(result));
