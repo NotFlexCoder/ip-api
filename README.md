@@ -88,19 +88,9 @@ curl "http://localhost:3000/search?ip=8.8.8.8"
 
 ## 🛠️ Setup
 
-To run this locally, follow these steps:
+Watch the following video to learn how to host this API and understand it better 👇
 
-1. Clone the repository.
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Start the server:
-   ```bash
-   npm run dev
-   ```
-
-Your API will now be accessible at `http://localhost:3000/`.
+[![Watch the video](https://img.youtube.com/vi/BlRC31IXZfg/hqdefault.jpg)](https://youtu.be/BlRC31IXZfg)
 
 ## 📄 License
 
